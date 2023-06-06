@@ -10,7 +10,7 @@ Email is one of the oldest network applications and was not originally envisione
 ### Message Format
 The message format in email communication is defined by RFC 822, which consists of a header and a body. The header contains `<CRLF>` terminated lines, separated from the body by a blank line. Each header line consists of a type and value separated by a colon. RFC 822 was extended by MIME to allow email messages to carry different types of data. MIME includes header lines that describe the data being carried, content type definitions, and a way to encode data types into ASCII using base64 encoding. MIME also defines a multipart type for structuring messages with multiple data types. The base64 encoding scheme maps three bytes of binary data into four ASCII characters. Messages can be encoded using 7-bit ASCII or readable encoding for text-only mail readers. Overall, the message format allows emails to carry various types of data, including plain text, images, and documents.
 
-![](img/Pasted image 20230525073100.png)
+![](img/Pastedimage20230525073100.png)
 
 ### Message Transfer
 Email messages are transferred between hosts using different protocols, with SMTP being the central protocol. SMTP (Simple Mail Transfer Protocol) is responsible for transferring messages from one host to another. Users interact with a mail reader to compose, file, search, and read their email. The mail reader communicates with a mail server using protocols such as POP (Post Office Protocol) or IMAP (Internet Message Access Protocol) to download email messages to the user's device.
@@ -23,8 +23,8 @@ SMTP sessions involve a dialog between two mail daemons, with one acting as the 
 
 Overall, SMTP facilitates the transfer of email messages between hosts, ensuring reliable delivery even through intermediate mail gateways.
 
-![](img/Pasted image 20230525073823.png)
-![](img/Pasted image 20230525073833.png)
+![](img/Pastedimage20230525073823.png)
+![](img/Pastedimage20230525073833.png)
 
 ### Mail Reader
 After email messages have been delivered to the user's mailbox, the user needs to retrieve and interact with them using a mail reader. In the past, the mail reader was a program running on the same machine as the mailbox. Nowadays, users typically access their mailboxes remotely using protocols like POP or IMAP.
@@ -37,7 +37,7 @@ When the user replies to or sends a new message, the mail reader doesn't use IMA
 
 In summary, IMAP allows users to access and interact with their mailboxes remotely, providing commands for authentication, retrieving messages, and managing message attributes. SMTP is used for sending and forwarding messages.
 
-![](img/Pasted image 20230525074112.png)
+![](img/Pastedimage20230525074112.png)
 
 ### 9.1.2 World Wide Web (HTTP)
 The World Wide Web (Web) is a system designed to organize and retrieve information using hypertext, which allows interlinked documents. It was developed in the late 1980s as a way to make the Internet more accessible. The Web consists of clients (web browsers) and servers that communicate using the HTTP (Hypertext Transfer Protocol) language.
@@ -59,7 +59,7 @@ The first line of an HTTP request message includes the operation, web page, and 
 
 In summary, HTTP request messages specify the operation, web page, and HTTP version. GET and HEAD are commonly used operations, and additional operations like POST enable various actions. The first line of the request message contains this information, and headers provide additional details such as conditional requests.
 
-![](img/Pasted image 20230525083552.png)
+![](img/Pastedimage20230525083552.png)
 
 ### Response Messages
 HTTP response messages start with a START_LINE that includes the HTTP version, a three-digit code indicating the success or failure of the request, and a reason for the response. The response codes are categorized into five types based on the first digit of the code. For example, a response with code 202 indicates that the server accepted the request, while a code 404 means the requested page was not found.
@@ -70,7 +70,7 @@ It's worth noting that certain response codes, like code 302 for request redirec
 
 In summary, HTTP response messages include a START_LINE indicating the HTTP version, response code, and reason. They can contain MESSAGE_HEADER lines conveying additional information. The response message often carries the requested page, encoded in MIME format, with attributes specified in the MESSAGE_HEADER lines.
 
-![](img/Pasted image 20230525083651.png)
+![](img/Pastedimage20230525083651.png)
 
 ### Uniform Resource Identifiers
 A Uniform Resource Identifier (URI) is a character string used to identify a resource, which can be a document, image, service, or anything with identity. URIs are used in HTTP as addresses, and one type of URI is a URL (Uniform Resource Locator).
@@ -88,8 +88,8 @@ HTTP/2, a newer version approved in 2015, maintains backward compatibility with 
 
 In summary, HTTP/1.0 used separate TCP connections for each data item, leading to inefficiency. HTTP/1.1 introduced persistent connections to alleviate this problem. HTTP/2, with its server-side push capability and support for multiplexing requests, further improves performance and reduces latency.
 
-![](img/Pasted image 20230525084212.png)
-![](img/Pasted image 20230525084219.png)
+![](img/Pastedimage20230525084212.png)
+![](img/Pastedimage20230525084219.png)
 
 ### Caching
 Caching plays a crucial role in improving the usability and efficiency of the web. It offers benefits to both clients and servers. From the client's perspective, cached web pages can be retrieved quickly from nearby caches, reducing the perceived loading time. From the server's perspective, offloading requests to caches decreases the server's workload. Caching can be implemented at various levels, including the user's browser, site-wide caches, and Internet Service Providers (ISPs). Each level of caching provides advantages in terms of speed and load reduction.
@@ -119,7 +119,7 @@ There are two approaches to defining a SOAP protocol with specific features. One
 
 SOAP modules provide a modular approach to protocol services, allowing the composition of protocols with specific features. However, the potential for interference between modules is a weakness of this approach. While module specifications are required to specify known interactions with other SOAP modules, it may not fully address the problem. Nonetheless, a core set of features and modules that provide important properties can be well known and well understood. The effectiveness of SOAP features and modules introduced in SOAP version 1.2 remains to be seen in practice.
 
-![](img/Pasted image 20230525085317.png)
+![](img/Pastedimage20230525085317.png)
 
 ### Standardizing Web Services Protocols
 In the context of Web Services, standardization is crucial for ensuring interoperability between different enterprises implementing these services. While WSDL and SOAP provide standards for specifying protocols, specific protocols need to be standardized for effective communication and tool support. This standardization addresses the tension between customization and standardization.
@@ -176,7 +176,7 @@ In the context of the Internet, when a user provides a host name to an applicati
 
 While the process of name resolution may appear straightforward, there are additional complexities involved, as will be explored further.
 
-![](img/Pasted image 20230525090446.png)
+![](img/Pastedimage20230525090446.png)
 
 ### Domain Hierarchy
 In computer networks, host names are assigned to hosts to provide user-friendly identifiers that are easier to remember than numerical addresses. However, routers and network devices operate more efficiently with numerical addresses. To bridge this gap between user-friendly names and router-friendly addresses, a naming service, also known as a name service or middleware, is used. The naming service maps human-readable names to corresponding network addresses.
@@ -191,7 +191,7 @@ In the context of the Internet, when a user provides a host name to an applicati
 
 While the process of name resolution may appear straightforward, there are additional complexities involved, as will be explored further.
 
-![](img/Pasted image 20230525090720.png)
+![](img/Pastedimage20230525090720.png)
 
 ### Name Servers
 The implementation of the DNS hierarchy involves partitioning the hierarchy into subtrees called zones. Each zone corresponds to an administrative authority responsible for managing that portion of the hierarchy. For example, the top level of the hierarchy forms a zone managed by ICANN (Internet Corporation for Assigned Names and Numbers). Below that, each organization or institution may have its own zone, such as Princeton University, and within that zone, further subdivisions can be managed by different departments or units.
@@ -224,8 +224,8 @@ To illustrate how resource records represent information in the domain hierarchy
     - A record: (mail.cs.princeton.edu, 128.112.136.72, A, IN)
 
 It's important to note that DNS is primarily used to name hosts and sites rather than individual people or other objects like files or directories. Other naming systems, such as X.500 and LDAP, are typically used for identifying people and providing additional attributes like names, titles, phone numbers, and addresses.
-![](img/Pasted image 20230525091327.png)
-![](img/Pasted image 20230525091349.png)
+![](img/Pastedimage20230525091327.png)
+![](img/Pastedimage20230525091349.png)
 
 ### Name Resolution
 When a client wants to resolve a domain name, such as "penguins.cs.princeton.edu," the name resolution process involves engaging a hierarchy of name servers. Here's a step-by-step illustration of how the resolution occurs using the set of servers mentioned in the previous subsection:
@@ -250,7 +250,7 @@ The second question concerns resolving partial names. When a user submits a part
 **Key Takeaway**
 Just to make sure we are clear, we have now seen three different levels of identifiers—domain names, IP addresses, and physical network addresses—and the mapping of identifiers at one level into identifiers at another level happens at different points in the network architecture. First, users specify domain names when interacting with the application. Second, the application engages DNS to translate this name into an IP address; it is the IP address that is placed in each datagram, not the domain name. (As an aside, this translation process involves IP datagrams being sent over the Internet, but these datagrams are addressed to a host that runs a name server, not to the ultimate destination.) Third, IP does forwarding at each router, which often means that it maps one IP address into another; that is, it maps the ultimate destination’s address into the address for the next hop router. Finally, IP engages the Address Resolution Protocol (ARP) to translate the next hop IP address into the physical address for that machine; the next hop might be the ultimate destination or it might be an intermediate router. Frames sent over the physical network have these physical addresses in their headers.
 
-![](img/Pasted image 20230525091722.png)
+![](img/Pastedimage20230525091722.png)
 
 ## 9.4 Overlay Networks
 Overlay networks have emerged as a means of introducing new functionality into the Internet, blurring the line between packet forwarding and application processing. An overlay network can be seen as a logical network built on top of an underlying network. In this context, the Internet itself can be viewed as an overlay network implemented on top of the infrastructure provided by the old telephone network.
@@ -262,8 +262,8 @@ Tunneling is a technique frequently used to implement overlay networks. It invol
 In a tunneling scenario, the overlay nodes (e.g., A, B, and C) are capable of interpreting both the inner and outer headers, while the intermediate routers handle only the outer header. The overlay nodes can have different addresses in the overlay network compared to the underlying network. For example, their underlying addresses might be conventional 32-bit IP addresses, while their overlay addresses could be experimental 128-bit addresses. It's even possible for the overlay network to route based on other factors such as URLs, domain names, XML queries, or packet content, rather than traditional addresses.
 
 Overlay networks offer a flexible way to introduce new functionality and application-specific processing into the Internet by building logical networks on top of the existing infrastructure.
-![](img/Pasted image 20230525092128.png)
-![](img/Pasted image 20230525092136.png)
+![](img/Pastedimage20230525092128.png)
+![](img/Pastedimage20230525092136.png)
 
 ### 9.4.1 Routing Overlays
 In the context of routing overlays, the simplest form is one that is designed to support an alternative routing strategy without involving additional application-level processing at the overlay nodes. A virtual private network (VPN) can be considered an example of a routing overlay. However, VPNs primarily involve defining alternative routing table entries rather than introducing new routing algorithms. These routing overlays use "IP tunnels" and are supported by many commercial routers.
@@ -291,8 +291,8 @@ When a node leaves the group, it sends a "leave mesh" message to its neighbors, 
 Once the mesh overlay is constructed, a multicast routing algorithm such as DVMRP can be run on top of it to build the multicast tree. The scalability issue faced by Internet-wide multicast is mitigated because the intermediate mesh can include only the nodes interested in the particular multicast group.
 
 Although the protocol for constructing the mesh overlay does not guarantee an optimum network, simulations and practical experience suggest that it performs well in practice. The resulting multicast tree within the mesh provides an efficient solution for end system multicast applications.
-![](img/Pasted image 20230525093034.png)
-![](img/Pasted image 20230525093041.png)
+![](img/Pastedimage20230525093034.png)
+![](img/Pastedimage20230525093041.png)
 
 ### Resilient Overlay Networks
 Resilient Overlay Networks (RON) are overlays that take advantage of the observation that the triangle inequality does not hold in the Internet, meaning that sometimes it's more efficient to send packets indirectly through an intermediate node rather than sending them directly to the destination. RONs aim to find alternative routes for traditional unicast applications by closely monitoring path quality and selecting the optimal route based on latency, available bandwidth, and loss probability.
@@ -306,7 +306,7 @@ The scalability of RON becomes a concern when multiple RONs are deployed, and ev
 **Key Takeaway**
 All of these overlays illustrate a concept that is central to computer networks in general: virtualization. That is, it is possible to build a virtual network from abstract (logical) resources on top of a physical network constructed from physical resources. Moreover, it is possible to stack these virtualized networks on top of each other and for multiple virtual network to coexist at the same level. Each virtual network, in turn, provides new capabilities that are of value to some set of users, applications, or higher-level networks.
 
-![](img/Pasted image 20230525093305.png)
+![](img/Pastedimage20230525093305.png)
 
 ### 9.4.2 Peer-to-Peer Networks
 In the context of peer-to-peer networks, the term "peer-to-peer" refers to a system where users can directly share resources (such as files, storage, bandwidth, and computing power) with each other without relying on a central server. It allows a community of users to collaborate and pool their resources, creating a larger network that offers benefits like a larger archival store, more significant video/audio conferences, complex searches, and computations than what individual users could achieve on their own.
@@ -325,7 +325,7 @@ Each QUERY message contained a unique query identifier (QID), but it didn't incl
 Regarding the evolution of the graph, when a node joined the Gnutella overlay, it needed to know at least one other node. This initial node served as its link to the overlay. After joining, a node learned about other nodes through QUERY RESPONSE messages for requested objects and responses passing through it. Each node had the freedom to choose which discovered nodes it wanted to keep as neighbors. The Gnutella protocol included PING and PONG messages for a node to probe the existence of a particular neighbor and receive a response, respectively.
 
 It's worth noting that Gnutella, as described, is not considered a particularly sophisticated protocol, and subsequent systems have aimed to improve upon it. One area of potential improvement is how queries are propagated. While flooding guarantees finding the desired object in the fewest hops possible, it doesn't scale well. Other approaches include forwarding queries randomly or based on past success probabilities. Another dimension for improvement is proactively replicating objects, as having multiple copies makes finding a specific object easier. Alternatively, entirely different strategies can be developed, which will be explored in the following discussion.
-![](img/Pasted image 20230525093816.png)
+![](img/Pastedimage20230525093816.png)
 
 ### Structured Overlays
 Structured overlays, as opposed to unstructured overlays like Gnutella, are designed to provide reliable and efficient object location in peer-to-peer networks. They achieve this by conforming to a specific graph structure during overlay construction and maintenance. In structured overlays, two main questions need to be addressed: (1) How do we map objects to nodes? and (2) How do we route requests to the node responsible for a specific object?
@@ -341,9 +341,9 @@ Structured overlays provide a probabilistic bound on the number of routing hops 
 Once the routing infrastructure is established, various services can be built on top of structured overlays. For example, a file sharing service can utilize object names as file names and replicate files across multiple nodes for improved availability. Other services, such as multicast applications, can also benefit from the structured overlay by constructing multicast trees from the overlay edges, reducing the overhead of separate multicast tree construction and maintenance.
 
 Overall, structured overlays provide a more reliable and efficient approach to object location in peer-to-peer networks compared to unstructured overlays like Gnutella.
-![](img/Pasted image 20230525094528.png)
-![](img/Pasted image 20230525094533.png)
-![](img/Pasted image 20230525094539.png)![](img/Pasted image 20230525094546.png)
+![](img/Pastedimage20230525094528.png)
+![](img/Pastedimage20230525094533.png)
+![](img/Pastedimage20230525094539.png)![](img/Pastedimage20230525094546.png)
 
 ### BitTorrent
 BitTorrent is a peer-to-peer file sharing protocol that enables efficient distribution of files by replicating and sharing file pieces among multiple peers. It was created by Bram Cohen and has become widely used for downloading and sharing large files over the internet.
@@ -371,7 +371,7 @@ Here's a summary of how BitTorrent works:
 
 By leveraging the replication and sharing of file pieces, BitTorrent maximizes download speeds, reduces the load on individual sources, and ensures efficient distribution of files across the network.
 
-![](img/Pasted image 20230525095308.png)
+![](img/Pastedimage20230525095308.png)
 
 ### 9.4.3 Content Distribution Networks
 Content Distribution Networks (CDNs) are systems designed to address the bottlenecks in web page downloading and improve the overall performance of content delivery. CDNs involve the geographical distribution of server surrogates or caches that store and serve cached copies of web pages. Instead of users having to access a single backend server, they can retrieve content from a surrogate server that is closer to their location, reducing latency and improving response time.
@@ -395,7 +395,7 @@ There are several mechanisms that can be used to implement redirection within Co
     
 
 CDNs employ these mechanisms to facilitate the redirection of client requests to the most suitable servers within the network. While CDNs may share similarities with overlay networks in terms of application-level routing decisions, they are not typically considered traditional overlay networks. In today's Internet architecture, redirection is implemented indirectly, with the redirector returning the appropriate destination address to the client, which then contacts the server directly.
-![](img/Pasted image 20230525095923.png)
+![](img/Pastedimage20230525095923.png)
 
 ### Policies
 When it comes to selecting servers and distributing requests within Content Distribution Networks (CDNs), redirectors employ various policies to optimize load balancing and response time. Here are some example policies:

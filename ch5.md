@@ -22,8 +22,8 @@ A port is an abstraction that can be implemented differently across systems. In 
 UDP provides demultiplexing and message correctness through a checksum. The checksum algorithm verifies the correctness of the message by summing up 16-bit words, using ones' complement arithmetic, and taking the ones' complement of the result. The input data for the checksum includes the UDP header, message body, and a pseudoheader containing fields from the IP header to ensure that the message is delivered between the correct endpoints.
 
 In summary, the simple demultiplexer protocol (UDP) extends host-to-host delivery to process-to-process communication by using ports for indirect process identification. A header containing port identifiers is used for demultiplexing. Clients learn server ports through well-known ports or a port mapper service. Ports are implemented as message queues, and UDP provides a checksum for message correctness.
-![](img/Pasted image 20230518090222.png)
-![](img/Pasted image 20230518090231.png)
+![](img/Pastedimage20230518090222.png)
+![](img/Pastedimage20230518090231.png)
 
 ## 5.2 Reliable Byte Stream (TCP)
 A more advanced transport protocol, such as the Transmission Control Protocol (TCP), provides a reliable, connection-oriented, byte-stream service. This type of service is widely used by applications as it ensures the delivery of data in the correct order and handles missing or reordered data. TCP is a full-duplex protocol, meaning it supports two simultaneous byte streams, one in each direction. It also incorporates flow control mechanisms for each byte stream, allowing the receiver to limit the amount of data the sender can transmit at a time. Additionally, TCP supports demultiplexing, enabling multiple application programs on a host to communicate with their counterparts.
@@ -61,9 +61,9 @@ TCP is a byte-oriented protocol that operates by sending and receiving packets c
 
 Overall, the TCP segment format enables the reliable and ordered delivery of byte streams by encapsulating the necessary information for connection establishment, data transmission, flow control, and error detection.
 
-![](img/Pasted image 20230518091848.png)
-![](img/Pasted image 20230518091853.png)
-![](img/Pasted image 20230518091906.png)
+![](img/Pastedimage20230518091848.png)
+![](img/Pastedimage20230518091853.png)
+![](img/Pastedimage20230518091906.png)
 
 ### 5.2.3 Connection Establishment and Termination
 TCP connection establishment and termination involve a series of messages exchanged between the client and the server.
@@ -98,7 +98,7 @@ The three-way handshake ensures that both the client and server are synchronized
 
 In summary, the TCP three-way handshake involves the exchange of three messages between the client and server to establish a connection. It ensures synchronization of sequence numbers and protects against the reuse of sequence numbers from previous connections.
 
-![](img/Pasted image 20230518092425.png)
+![](img/Pastedimage20230518092425.png)
 
 ### State-Transition Diagram
 The TCP specification includes a state-transition diagram that illustrates the different states involved in establishing and terminating a connection. The diagram shows the states above the ESTABLISHED state for connection establishment and the states below the ESTABLISHED state for connection termination.
@@ -117,7 +117,7 @@ In connection teardown, a connection in the TIME_WAIT state must wait for a peri
 
 Overall, the state-transition diagram provides a visual representation of the various states and transitions involved in TCP connection establishment and termination.
 
-![](img/Pasted image 20230518093004.png)
+![](img/Pastedimage20230518093004.png)
 
 ### 5.2.4 Sliding Window Revisited
 TCP's variant of the sliding window algorithm serves multiple purposes:
@@ -160,7 +160,7 @@ The relationships between these pointers are as follows:
 Bytes to the left of LastByteRead have already been read by the local application process and do not need to be buffered. Bytes to the right of LastByteRcvd have not yet arrived and do not need to be buffered.
 
 In summary, these pointers and relationships help manage the send and receive buffers in TCP. They ensure that data is transmitted and received in the correct order and that the application processes on both sides have access to the appropriate data.
-![](img/Pasted image 20230518093309.png)
+![](img/Pastedimage20230518093309.png)
 
 ### Flow Control
 In TCP, both the sender and receiver maintain buffers to handle data transmission. The sender has a send buffer to store data that has been sent but not yet acknowledged, as well as data written by the sending application. The receiver has a receive buffer to hold out-of-order data and data that the application process has not yet read.
@@ -211,7 +211,7 @@ The speed at which data is transmitted over the Internet determines how quickly 
 
 To address this limitation, the IETF (Internet Engineering Task Force) has developed extensions to TCP that effectively extend the sequence number space to prevent wrapping around. These extensions and related enhancements are described in later sections, providing a solution for handling larger bandwidths and protecting against sequence number wraparound.
 
-![](img/Pasted image 20230518094008.png)
+![](img/Pastedimage20230518094008.png)
 
 ### Keeping the Pipe Full
 The 16-bit AdvertisedWindow field in TCP must be large enough to allow the sender to keep the network pipe full. While the receiver has the flexibility to open the window smaller than the maximum size allowed by AdvertisedWindow, we are interested in scenarios where the receiver has sufficient buffer space to handle the maximum possible window size.
@@ -219,7 +219,7 @@ The 16-bit AdvertisedWindow field in TCP must be large enough to allow the sende
 The size of the AdvertisedWindow field is determined by the delay × bandwidth product, rather than just the network bandwidth. It needs to be opened wide enough to accommodate a full delay × bandwidth product's worth of data to be transmitted. Assuming a round-trip time (RTT) of 100 ms, Table 5.2 provides the delay × bandwidth product for various network technologies.
 
 However, TCP's AdvertisedWindow field is even more limited than its SequenceNum field. It is not large enough to handle a T3 connection across the continental United States, as a 16-bit field allows for an advertised window of only 64 KB. To address this limitation, the same TCP extension mentioned earlier provides a mechanism for effectively increasing the size of the advertised window.
-![](img/Pasted image 20230518094311.png)
+![](img/Pastedimage20230518094311.png)
 
 ### 5.2.5 Triggering Transmission
 When determining when to transmit a segment, TCP considers several factors. In the absence of flow control, TCP relies on three mechanisms to trigger segment transmission.
@@ -240,7 +240,7 @@ Early TCP implementations chose to transmit a half-full segment to take advantag
 To mitigate the silly window syndrome, a rule was established that after advertising a zero window, the receiver must wait for space equal to an MSS before advertising an open window. Although it is not possible to prevent the sender from transmitting small segments, the receiver can delay ACKs to coalesce them. However, this is only a partial solution, as the receiver lacks information about how long it is safe to delay.
 
 Ultimately, the responsibility falls on the sender to decide when to transmit a segment, considering the flow control and avoiding the creation of small segments that can lead to the silly window syndrome.
-![](img/Pasted image 20230518094756.png)
+![](img/Pastedimage20230518094756.png)
 
 ### 5.2.7 Record Boundaries
 In TCP, which is a byte-stream protocol, the number of bytes written by the sender may not match the number of bytes read by the receiver. Unlike message-oriented protocols like UDP, TCP does not automatically insert record boundaries between sets of bytes.
@@ -270,7 +270,7 @@ Over the years, as network speeds have increased, TCP has managed to keep up wit
 Despite these challenges, TCP continues to perform well as network speeds increase. When TCP reaches its limits related to congestion or increasing bandwidth-delay products, researchers work on finding solutions to enhance performance.
 
 In summary, this section emphasizes the importance of performance evaluation, provides insights into the experimental methodology, discusses throughput results, highlights the challenges faced by TCP, and underscores its ability to adapt to evolving network demands while seeking solutions to performance limitations.
-![](img/Pasted image 20230518095829.png)
+![](img/Pastedimage20230518095829.png)
 
 ### 5.2.10 Alternative Design Choices (SCTP, QUIC)
 In this section, the authors explore alternative design choices and considerations in transport protocols, acknowledging that TCP is not the only valid option in the design space. They discuss different classes of transport protocols, such as stream-oriented (like TCP) and request/reply protocols (like RPC). TCP falls into the stream-oriented category, and within that, it can be further divided into reliable and unreliable subgroups.

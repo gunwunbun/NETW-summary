@@ -31,7 +31,7 @@ A switch is connected to a set of links and uses the appropriate data link proto
 In any network, it is necessary to have a way to identify end nodes, which are typically referred to as addresses. Ethernet addresses, for example, are 48-bit unique identifiers assigned to each Ethernet card to ensure global uniqueness. It is assumed that each host in the network has a globally unique address. Additionally, there needs to be a way to identify the input and output ports of each switch, which can be done by numbering each port.
 
 In summary, switches interconnect links to form larger networks, and they forward packets from an input to one or more outputs. Switches can be connected together to build large networks, and they offer dedicated links for hosts, allowing multiple hosts to transmit at full speed. The switch determines the output link for each packet based on identifiers in the packet header, using either a datagram or virtual circuit approach. Addresses are used to identify end nodes, and ports are identified either by numbering or by the name of the connected node.
-![](img/Pasted image 20230527091026.png)
+![](img/Pastedimage20230527091026.png)
 
 ### 3.1.1 Datagrams
 The concept behind datagrams is quite straightforward: each packet contains complete destination address information, enabling any switch to determine how to forward it to its destination. In a datagram network, every packet carries the necessary information for forwarding.
@@ -46,8 +46,8 @@ Datagram networks exhibit the following characteristics:
 4. If a switch or link fails, it may not significantly impact communication if an alternative route can be found and the forwarding table is updated accordingly.
 
 The ability to handle switch or link failures and adapt to alternate routes is particularly important for the robustness of datagram networks. The Internet, in particular, has been designed with a focus on resilience to failures and has proven to be quite effective in achieving this goal. Since datagram-based networks are the primary technology discussed in this book, specific examples will be covered in later sections. For now, let's move on to exploring the two main alternatives to datagram networks.
-![](img/Pasted image 20230527091228.png)
-![](img/Pasted image 20230527091235.png)
+![](img/Pastedimage20230527091228.png)
+![](img/Pastedimage20230527091235.png)
 
 ### 3.1.2 Virtual Circuit Switching
 Virtual Circuit Switching is a technique for packet switching that involves establishing a virtual connection between the source and destination hosts before data transmission. It is also known as a connection-oriented model. The process consists of two stages: connection setup and data transfer.
@@ -75,10 +75,10 @@ Virtual circuit switching offers several advantages:
 - Quality of Service (QoS): Virtual circuits can provide different QoS levels, allowing the network to allocate resources and meet performance guarantees for specific circuits.
 
 Historically, virtual circuit technologies like X.25, Frame Relay, and Asynchronous Transfer Mode (ATM) were successful. However, with the rise of the Internet's connectionless model, these technologies have lost popularity. Virtual circuits were commonly used in the construction of virtual private networks (VPNs), but even that application is now predominantly supported using Internet-based technologies.
-![](img/Pasted image 20230527091315.png)
-![](img/Pasted image 20230527091323.png)
-![](img/Pasted image 20230527091329.png)
-![](img/Pasted image 20230527091338.png)
+![](img/Pastedimage20230527091315.png)
+![](img/Pastedimage20230527091323.png)
+![](img/Pastedimage20230527091329.png)
+![](img/Pastedimage20230527091338.png)
 
 ### Asynchronous Transfer Mode (ATM)
 Asynchronous Transfer Mode (ATM) is a virtual circuit-based networking technology that gained popularity in the 1980s and early 1990s. It was widely embraced by the telephone industry and provided high-speed switching, which was beneficial as shared media like Ethernet and token rings were becoming insufficient for many network users.
@@ -96,7 +96,7 @@ Another benefit of small ATM cells is the improvement in end-to-end latency. ATM
 Choosing the appropriate cell size was a matter of striking a balance. If the cells are too short, the overhead of carrying header information relative to the data increases, reducing the percentage of link bandwidth used for data transmission. Additionally, devices that process cells at a maximum rate are directly affected by cell size, as a shorter cell results in a lower total data rate. Conversely, if the cells are too big, there is wasted bandwidth due to the need for padding to fill a complete cell when transmitting small amounts of data. The ATM cell payload size of 48 bytes was chosen as a compromise, although it didn't satisfy everyone. A power of two would have been preferable for computer processing.
 
 In summary, ATM was a significant networking technology that gained popularity in the 1980s and early 1990s. Its virtual circuit-based approach, fixed-length ATM cells, and support for voice and data traffic made it appealing for various applications. While its deployment has declined over time, its influence and some of its design principles continue to be relevant in modern networking.
-![](img/Pasted image 20230527091530.png)
+![](img/Pastedimage20230527091530.png)
 
 ### 3.1.3 Source Routing
 Source routing is a switching approach that relies on the source host to provide all the necessary information about the network topology to switch a packet across the network. Instead of using virtual circuits or conventional datagrams, source routing assigns a number to each output of each switch and includes this number in the packet header.
@@ -108,8 +108,8 @@ There are a few important points to note about source routing. Firstly, the resp
 Source routing can be used in both datagram networks and virtual circuit networks. Datagram networks, like the Internet Protocol (IP), may include a source route option that allows selected packets to be source routed while others are switched as conventional datagrams. Source routing is also used in some virtual circuit networks to establish the initial setup request along the path from source to destination.
 
 Source routes can be categorized as strict or loose. In a strict source route, every node along the path must be specified. In contrast, a loose source route only specifies a set of nodes to be traversed without detailing the exact path between nodes. A loose source route can be seen as a set of waypoints rather than a fully specified route. The loose option can be useful in limiting the amount of information required by the source to construct a source route. While it may be challenging for a host to obtain the complete path information for a strict source route in a large network, both types of source routes have their applications in specific scenarios.
-![](img/Pasted image 20230527091826.png)
-![](img/Pasted image 20230527091836.png)
+![](img/Pastedimage20230527091826.png)
+![](img/Pastedimage20230527091836.png)
 
 ## 3.2 Switched Ethernet
 In the context of switching technology, Switched Ethernet (also known as L2 switches) plays a significant role in campus and enterprise networks. These switches are commonly used to interconnect Ethernet segments and create extended LANs. While they were historically referred to as bridges, the term "switch" is now more widely used. However, the behavior and functionality of bridges and switches are essentially the same.
@@ -126,7 +126,7 @@ One option would be to manually configure a table in the bridge, similar to the 
 It's important to note that a bridge utilizing such a table operates based on a version of the datagram or connectionless model of forwarding discussed earlier. Each packet carries a global address, and the bridge determines the appropriate output port by looking up the address in its table.
 
 When a bridge is first powered on, its forwarding table is empty, and entries are added over time as frames are received. Each entry in the table is associated with a timeout, and the bridge removes the entry after a specified period. This timeout mechanism prevents issues when a host, and consequently its LAN address, is moved from one network to another. Therefore, the table may not always be complete. If a frame is received with a destination address that is not currently in the table, the bridge forwards the frame out through all the other ports. In other words, the forwarding table serves as an optimization to filter out unnecessary frames, but it is not essential for the correctness of the forwarding process.
-![](img/Pasted image 20230527091957.png)
+![](img/Pastedimage20230527091957.png)
 
 ### 3.2.4 Broadcast and Multicast
 Switches, in addition to forwarding unicast frames, also need to support broadcast and multicast functionalities in order to extend LANs across multiple networks.
@@ -152,8 +152,8 @@ Supporting VLANs requires a simple extension to the original 802.1 header specif
 
 It's important to note that L2 switches have limitations in terms of interconnecting heterogeneous networks with different addressing formats. Switches rely on the frame header of the network they connect to, limiting their support to networks with the same address format. While switches can connect Ethernet and 802.11-based networks because of their shared header format, they cannot readily interconnect networks with different addressing formats like ATM, SONET, PON, or cellular networks. The next section will address this limitation and discuss scaling switched networks to even larger sizes.
 
-![](img/Pasted image 20230527092128.png)
-![](img/Pasted image 20230527092137.png)
+![](img/Pastedimage20230527092128.png)
+![](img/Pastedimage20230527092137.png)
 
 ## 3.3 Internet (IP)
 An internetwork, as the name suggests, refers to a network of networks. It is a collection of interconnected networks that allows for communication and data exchange between different networks and devices. Internetworks provide the foundation for the Internet as we know it today.
@@ -187,8 +187,8 @@ In addition to IP, the concept of L2 (Layer 2) and L3 (Layer 3) networks is cruc
 
 Understanding the duality and implications of L2 and L3 networks is important for mastering modern packet-switched networks and internetworking concepts.
 
-![](img/Pasted image 20230527092433.png)
-![](img/Pasted image 20230527092440.png)
+![](img/Pastedimage20230527092433.png)
+![](img/Pastedimage20230527092440.png)
 
 ### 3.3.2 Service Model
 The service model of an internetwork defines the host-to-host services that are provided over the network. When designing the service model, it is important to consider the capabilities and limitations of the underlying physical networks. The goal is to define a service model that can be supported by all the networks within the internetwork.
@@ -246,7 +246,7 @@ The IP header format includes the following fields:
 It's worth noting that the IP checksum provides error detection but not as strong as a CRC. However, it is computationally simpler to calculate in software.
 
 In summary, the IP packet format consists of a header and data payload. The header includes various fields such as version, header length, type of service, length, time to live, protocol, checksum, source address, destination address, and optional fields. The header format is designed to align on 32-bit boundaries, and its simplicity allows IP to run over various network technologies while providing best-effort, connectionless service.
-![](img/Pasted image 20230527092644.png)
+![](img/Pastedimage20230527092644.png)
 
 ### Fragmentation and Reassembly
 Fragmentation and reassembly are mechanisms in the IP protocol that handle the transmission of IP datagrams over networks with different maximum transmission unit (MTU) sizes. Since different network technologies have varying limits on packet sizes, fragmentation and reassembly allow IP datagrams to be divided into smaller pieces (fragments) when they are too large to fit within the MTU of a particular network, and then reassembled at the destination host.
@@ -262,8 +262,8 @@ The fragmentation process involves dividing the original datagram into smaller f
 The reassembly of fragments occurs at the receiving host and not at intermediate routers. It involves recognizing fragments with the same identifier, ordering them based on their offset, and concatenating the data from each fragment to reconstruct the original datagram.
 
 It's important to note that fragmentation should be avoided whenever possible due to its potential drawbacks. It can introduce additional processing overhead, consume network bandwidth, and increase the likelihood of packet loss or reassembly failures. Modern practices encourage the use of "path MTU discovery," where hosts send packets small enough to traverse the network path's smallest MTU, thus avoiding fragmentation altogether.
-![](img/Pasted image 20230527092811.png)
-![](img/Pasted image 20230527092828.png)
+![](img/Pastedimage20230527092811.png)
+![](img/Pastedimage20230527092828.png)
 
 ### 3.3.3 Global Addresses
 Global addressing in the context of the IP protocol refers to the need for a unique and hierarchical scheme to identify hosts in a large internetwork. While Ethernet addresses are globally unique, they lack structure and provide limited information for routing protocols. In contrast, IP addresses are hierarchical, consisting of a network part and a host part.
@@ -282,7 +282,7 @@ IP addresses are commonly written as four decimal integers separated by dots, wi
 
 IP addresses, not domain names, are carried in the headers of IP packets and used by routers to make forwarding decisions.
 
-![](img/Pasted image 20230527092955.png)
+![](img/Pastedimage20230527092955.png)
 
 ### 3.3.4 Datagram Forwarding in IP
 In the IP protocol, the process of forwarding datagrams involves sending packets from a source host to a destination host, potentially passing through multiple routers along the way. Forwarding focuses on the actual delivery of packets, while routing involves building tables to determine the correct output for a packet.
@@ -312,8 +312,8 @@ It's worth noting that forwarding tables can include information about directly 
 
 Hierarchical addressing, with network and host parts, improves the scalability of large networks. Routers maintain forwarding tables that list network numbers rather than individual hosts, reducing the size of the table. This scalability benefit becomes more significant as network sizes increase, allowing routers to handle a large number of hosts with a relatively small forwarding table.
 
-![](img/Pasted image 20230527093120.png)
-![](img/Pasted image 20230527093126.png)
+![](img/Pastedimage20230527093120.png)
+![](img/Pastedimage20230527093126.png)
 
 **Key Takeaway**
 This illustrates one of the most important principles of building scalable networks: To achieve scalability, you need to reduce the amount of information that is stored in each node and that is exchanged between nodes. The most common way to do that is hierarchical aggregation. IP introduces a two-level hierarchy, with networks at the top level and nodes at the bottom level. We have aggregated information by letting  
@@ -338,9 +338,9 @@ Subnetting allows for more efficient use of IP addresses and reduces the size of
 
 Overall, subnetting and classless addressing provide mechanisms to improve the efficiency and scalability of IP address allocation and routing in complex networks.
 
-![](img/Pasted image 20230527093339.png)
-![](img/Pasted image 20230527093346.png)
-![](img/Pasted image 20230527093353.png)
+![](img/Pastedimage20230527093339.png)
+![](img/Pastedimage20230527093346.png)
+![](img/Pastedimage20230527093353.png)
 
 ### Classless Addressing
 CIDR (Classless Interdomain Routing) is a mechanism that goes beyond subnetting and eliminates the limitations of address classes. While subnetting allows for the division of a classful address into multiple subnets, CIDR enables the aggregation of several classful addresses into a single "supernet." This approach addresses the issues of address space efficiency and routing system scalability.
@@ -359,7 +359,7 @@ CIDR's ability to aggregate routes is not limited to customer networks but can a
 
 In summary, CIDR goes beyond subnetting by enabling the aggregation of routes and eliminating the limitations of address classes. It improves address space efficiency and enhances the scalability of the routing system, making more efficient use of the available IP address space.
 
-![](img/Pasted image 20230527093436.png)
+![](img/Pastedimage20230527093436.png)
 
 ### IP Forwarding Revisited
 When CIDR is introduced, the process of IP forwarding needs to be modified to handle variable-length prefixes and potential overlaps in the forwarding table. The longest match rule is applied to determine the best match between an IP address and the prefixes in the table.
@@ -389,7 +389,7 @@ The results of the ARP process can be added as an additional column in a forward
 
 In summary, ARP enables hosts to dynamically learn and maintain mappings between IP addresses and link-level addresses by broadcasting queries and receiving responses from hosts on the network. This allows for efficient address translation within a network.
 
-![](img/Pasted image 20230527094040.png)
+![](img/Pastedimage20230527094040.png)
 
 **Key Takeaway**
 We have now seen the basic mechanisms that IP provides for dealing with both heterogeneity and scale. On the issue of heterogeneity, IP begins by defining a best-effort service model that makes minimal assumptions about the underlying networks; most notably, this service model is based on unreliable datagrams. IP then  
@@ -416,8 +416,8 @@ Overall, DHCP simplifies the host configuration process by automating the assign
 **Key Takeaway**
 DHCP illustrates an important aspect of scaling: the scaling of network management. While discussions of scaling often focus on keeping the state in network devices from growing too fast, it is important to pay attention to the growth of network management complexity. By allowing network managers to configure a range of IP addresses per network rather than one IP address per host, DHCP improves the manageability of a network.
 
-![](img/Pasted image 20230527094139.png)
-![](img/Pasted image 20230527094243.png)
+![](img/Pastedimage20230527094139.png)
+![](img/Pastedimage20230527094243.png)
 
 ### 3.3.8 Error Reporting (ICMP)
 The Internet Control Message Protocol (ICMP) is a companion protocol to IP that handles error reporting and control messages. When IP encounters errors during the processing of a datagram, such as when a router is unable to forward the datagram or when a fragment of a datagram is lost, ICMP is responsible for sending error messages back to the source host.
@@ -445,6 +445,6 @@ However, tunneling has some downsides. It increases the packet length, which can
 
 In summary, IP tunneling provides a powerful and flexible technique for establishing virtual links across internetworks, enabling controlled connectivity, security, and the transport of different protocols. While it offers numerous benefits, careful consideration should be given to its potential downsides and management requirements.
 
-![](img/Pasted image 20230527094422.png)
-![](img/Pasted image 20230527094431.png)
-![](img/Pasted image 20230527094439.png)
+![](img/Pastedimage20230527094422.png)
+![](img/Pastedimage20230527094431.png)
+![](img/Pastedimage20230527094439.png)

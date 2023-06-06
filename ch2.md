@@ -42,10 +42,10 @@ Local area networks (LANs) within buildings or campuses are another type of link
 
 This survey of link types highlights the diversity and reasons behind it. Networking protocols can leverage this diversity and provide a consistent view of the network to higher layers, abstracting the underlying complexities and economic factors.
 
-![](img/Pasted image 20230527090723.png)
-![](img/Pasted image 20230527090834.png)
-![](img/Pasted image 20230527090736.png)
-![](img/Pasted image 20230527090745.png)
+![](img/Pastedimage20230527090723.png)
+![](img/Pastedimage20230527090834.png)
+![](img/Pastedimage20230527090736.png)
+![](img/Pastedimage20230527090745.png)
 
 ## 2.5 Reliable transmission
 Reliable delivery in data communication ensures that frames are successfully delivered despite errors or losses during transmission. It relies on acknowledgments (ACKs) and timeouts. An acknowledgment is a control frame sent back to the sender to confirm the receipt of a frame. If an acknowledgment is not received within a timeout period, the sender retransmits the frame. This approach is known as automatic repeat request (ARQ). Error-correcting codes may not handle all errors, leading to discarded frames. Reliable delivery can be implemented at various layers, and it's common to provide it at higher layers like transport or application. Understanding the concepts of acknowledgments, timeouts, and ARQ algorithms is crucial for ensuring reliable data transmission.
@@ -57,8 +57,8 @@ The significance of the delay × bandwidth product is that it represents the amo
 transit. We would like to be able to send this much data without waiting for the first acknowledgment. The  
 principle at work here is often referred to as keeping the pipe full. The algorithms presented in the following  
 two subsections do exactly this.
-![](img/Pasted image 20230518073326.png)
-![](img/Pasted image 20230518073342.png)
+![](img/Pastedimage20230518073326.png)
+![](img/Pastedimage20230518073342.png)
 
 ### 2.5.2 Sliding Window
 The sliding window algorithm is used for reliable data transmission. The sender assigns a sequence number to each frame and maintains variables for send window size (SWS), last acknowledgment received (LAR), and last frame sent (LFS). The sender transmits frames and waits for acknowledgments. If an acknowledgment is not received within a specified time, the sender retransmits the frame. The receiver maintains variables for receive window size (RWS), largest acceptable frame (LAF), and last frame received (LFR). When a frame arrives, the receiver checks if it falls within the window and takes appropriate action. The receiver sends cumulative acknowledgments and adjusts its variables accordingly. The sender can have multiple outstanding frames, but the receiver sets a limit on the number of out-of-order frames it accepts. The sender and receiver maintain invariants related to the window sizes. The scheme handles packet losses and retransmissions but may experience decreased data throughput during timeouts. There are variations of the scheme, including the use of negative acknowledgments (NAKs) and selective acknowledgments, which provide additional information to improve performance. The sender and receiver set their window sizes based on desired outstanding frames and buffer capabilities.
@@ -74,8 +74,8 @@ To summarize, the sliding window algorithm can preserve frame order and support 
 One important concept to take away from this discussion is the system design principle we call separation of concerns. That is, you must be careful to distinguish between different functions that are sometimes rolled together in one mechanism, and you must make sure that each function is necessary and being supported  
 in the most effective way. In this particular case, reliable delivery, ordered delivery, and flow control are sometimes combined in a single sliding window protocol, and we should ask ourselves if this is the right thing to do at the link level.
 
-![](img/Pasted image 20230518074540.png)![](img/Pasted image 20230518074552.png)
-![](img/Pasted image 20230518074608.png)
+![](img/Pastedimage20230518074540.png)![](img/Pastedimage20230518074552.png)
+![](img/Pastedimage20230518074608.png)
 
 ### 2.5.3 Concurrent Logical Channels
 The data link protocol used in the original ARPANET offers an alternative to the sliding window protocol. This protocol, known as concurrent logical channels, allows multiple logical channels to be multiplexed onto a single point-to-point link. The stop-and-wait algorithm is applied independently to each logical channel, enabling the sender to keep the link fully utilized.

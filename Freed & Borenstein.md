@@ -93,7 +93,7 @@ The "multipart/alternative" type is syntactically identical to "multipart/mixed,
 Systems should recognize that the content of the various parts is interchangeable and should choose the "best" type based on the local environment and references, sometimes even through user interaction. Similar to "multipart/mixed," the order of body parts is significant. In this case, the alternatives appear in an order of increasing faithfulness to the original content. Generally, the best choice is the last part of a type supported by the recipient system's local environment.
 
 For example, "multipart/alternative" can be used to send a message in a fancy text format that can be easily displayed anywhere. In the given example:
-![](img/Pasted image 20230525103830.png)
+![](img/Pastedimage20230525103830.png)
 Users whose mail systems understand the "application/x-whatever" format would see only the fancy version, while other users would see either the enriched or plain text version, depending on their system's capabilities.
 
 When composing "multipart/alternative" entities, user agents should place the body parts in increasing order of preference, with the preferred format last. For fancy text, the sending user agent should put the plainest format first and the richest format last. Receiving user agents should pick and display the last format they are capable of displaying.
@@ -112,7 +112,7 @@ The "multipart/digest" subtype is used to create digests, which are collections 
 It is important to note that while it is possible to specify a Content-Type value other than "message/rfc822" for a body part in a digest, such as "text/plain" for a description of the material in the digest, it is generally discouraged. The "multipart/digest" Content-Type is specifically designed for sending collections of messages. If a "text/plain" part is required, it should be included as a separate part within a "multipart/mixed" message.
 
 An example of a digest in this format could be structured as follows:
-![](img/Pasted image 20230525104029.png)
+![](img/Pastedimage20230525104029.png)
 In this example, the digest starts with an introductory text or table of contents. Each individual message within the digest is represented as a separate part with the "multipart/digest" Content-Type. The boundary markers distinguish between the different messages. The messages themselves follow the "message/rfc822" format and contain their respective headers and bodies. The entire digest is enclosed within the "multipart/mixed" structure using the "---- main boundary ----" boundary marker.
 
 ### 5.1.6. Parallel Subtype

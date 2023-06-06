@@ -65,9 +65,9 @@ This overview provides a foundation for understanding the concepts of connectivi
 **Key takeaway**
 The main idea to take away from this discussion is that we can define a network recursively as consisting of two or more nodes connected by a physical link, or as two or more networks connected by a node. In other words, a network can be constructed from a nesting of networks, where at the bottom level, the network is implemented by some physical medium. Among the key challenges in providing network connectivity are the definition of an address for each node that is reachable on the network (be it logical or physical), and the use of such addresses to forward messages toward the appropriate destination node(s).
 
-![](img/Pasted image 20230527084859.png)
-![](img/Pasted image 20230527084927.png)
-![](img/Pasted image 20230527084937.png)
+![](img/Pastedimage20230527084859.png)
+![](img/Pastedimage20230527084927.png)
+![](img/Pastedimage20230527084937.png)
 
 ### 1.2.3 Cost-Effective Resource Sharing
 In the context of packet-switched networks and resource sharing, Chapter 1.2.3 discusses the concept of multiplexing and the challenges of sharing network resources among multiple hosts.
@@ -87,8 +87,8 @@ Overall, this section introduces the concept of multiplexing and explores variou
 **Key Takeaway**
 The bottom line is that statistical multiplexing defines a cost-effective way for multiple users (e.g., host-to-host flows of data) to share network resources (links and nodes) in a fine-grained manner. It defines the packet as the granularity with which the links of the network are allocated to different flows, with each switch able to schedule the use of the physical links it is connected to on a per-packet basis. Fairly allocating link capacity to different flows and dealing with congestion when it occurs are the key challenges of statistical multiplexing.
 
-![](img/Pasted image 20230527085139.png)
-![](img/Pasted image 20230527085147.png)
+![](img/Pastedimage20230527085139.png)
+![](img/Pastedimage20230527085147.png)
 
 ### 1.2.4 Support for Common Services
 In Section 1.2.4, the focus shifts to the role of computer networks in supporting common services required by application programs. While the previous section discussed the challenges of connectivity among hosts, it is essential to view a network as a means for distributed application processes to communicate effectively.
@@ -102,7 +102,7 @@ Logical process-to-process channels are implemented on top of physical host-to-h
 Defining the functionality of these channels for application programs is crucial. Questions arise regarding the requirements of message delivery guarantees, message ordering, privacy, and other considerations. Different types of channels are provided by the network to cater to various application needs, allowing each application to select the channel type that best suits its requirements.
 
 The section concludes by highlighting that defining useful channels involves thoughtful consideration of the services and functionalities required by application programs.
-![](img/Pasted image 20230527085230.png)
+![](img/Pastedimage20230527085230.png)
 
 ### Identify Common Communication Patterns
 In this section, the focus is on identifying common communication patterns and designing abstract channels that meet the communication needs of various applications.
@@ -174,10 +174,10 @@ The term "protocol" is used in two different ways: to refer to the abstract inte
 Standardization bodies, such as the Internet Engineering Task Force (IETF) and the International Standards Organization (ISO), establish network architectures by defining the rules and policies for a particular protocol graph. These bodies have procedures for introducing, validating, and approving protocols within their architectures.
 
 In the context of protocol layering, there are still additional aspects to explain, which will be covered in subsequent sections.
-![](img/Pasted image 20230527085738.png)
-![](img/Pasted image 20230527085747.png)
-![](img/Pasted image 20230527085756.png)
-![](img/Pasted image 20230527085807.png)
+![](img/Pastedimage20230527085738.png)
+![](img/Pastedimage20230527085747.png)
+![](img/Pastedimage20230527085756.png)
+![](img/Pastedimage20230527085807.png)
 
 ### 1.3.2 Encapsulation
 In the process of communication between protocols in a layered network system, encapsulation plays a crucial role. When an application program sends a message to its peer through the RRP protocol, RRP treats the message as an uninterpreted string of bytes. It doesn't concern itself with the specific content of the message, whether it's integers, an email, an image, or anything else. RRP's responsibility is simply to transmit the bytes to its peer. However, RRP needs to provide control information to the peer on how to handle the message upon reception. To accomplish this, RRP attaches a header to the message.
@@ -189,7 +189,7 @@ This process of encapsulation is repeated at each layer of the protocol graph. F
 It's worth noting that nodes within the network, such as switches and routers, may inspect the HHP header at the front of the message.
 
 When we say a low-level protocol doesn't interpret the message given by a higher-level protocol, it means that the low-level protocol doesn't extract any meaning from the data contained in the message. However, the low-level protocol may apply simple transformations to the entire body of the message, including the original application's data and any headers added by higher-level protocols. These transformations could include compression or encryption of the message.
-![](img/Pasted image 20230527085929.png)
+![](img/Pastedimage20230527085929.png)
 
 ### 1.3.3 Multiplexing and Demultiplexing
 Multiplexing and demultiplexing are essential concepts in packet switching, allowing for the transmission of multiple data flows over a single physical link. This concept applies throughout the protocol graph, not just at switching nodes. In the context of Figure 1.11, RRP can be seen as implementing a logical communication channel, where messages from different applications are multiplexed over this channel at the source host and then demultiplexed back to the appropriate application at the destination host.
@@ -224,7 +224,7 @@ The lower three layers (physical, data link, and network) are implemented on all
 
 It's important to note that while the OSI model provides a conceptual framework, actual network architectures often combine or skip some layers based on their specific requirements.
 
-![](img/Pasted image 20230527090036.png)
+![](img/Pastedimage20230527090036.png)
 
 ### 1.3.5 Internet Architecture
 The Internet architecture, also known as the TCP/IP architecture, is a framework for connecting computers and is based on the protocols TCP (Transmission Control Protocol) and IP (Internet Protocol). It evolved from the experiences with the ARPANET, a packet-switched network funded by the Advanced Research Projects Agency (ARPA) of the U.S. Department of Defense. The Internet architecture predates the OSI architecture and heavily influenced its development.
@@ -244,8 +244,8 @@ One notable characteristic of the Internet architecture is its hourglass shape, 
 In order for a new protocol to be officially included in the Internet architecture, there must be a protocol specification and one or more representative implementations. This emphasis on working software and rough consensus is a cultural aspect of the Internet design community, as exemplified by the quote: "We reject kings, presidents, and voting. We believe in rough consensus and running code" (David Clark).
 
 Standardization and interoperability efforts in the Internet architecture are supported by organizations like the Internet Assigned Numbers Authority (IANA) and the Internet Corporation for Assigned Names and Numbers (ICANN), responsible for unique identifier assignment and overall stewardship of the Internet.
-![](img/Pasted image 20230527090151.png)
-![](img/Pasted image 20230527090158.png)
+![](img/Pastedimage20230527090151.png)
+![](img/Pastedimage20230527090158.png)
 
 **Key Takeaway**
 Of these three attributes of the Internet architecture, the hourglass design philosophy is important enough to bear repeating. The hourglass’s narrow waist represents a minimal and carefully chosen set of global ca-pabilities that allows both higher-level applications and lower-level communication technologies to coexist,  
